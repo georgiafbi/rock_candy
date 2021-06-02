@@ -12,21 +12,46 @@ from sklearn.model_selection import GridSearchCV
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
-conrete = 0
-# load, no need to initialize the loaded_rf
-rfr_model = joblib.load("random_forest_regression.joblib")
-scaler=StandardScaler()
 
 
-@app.route("/results", methods=["POST"])
-def results():
+@app.route("/table_results", methods=["POST"])
+def table_results():
+    # load, no need to initialize the loaded_rf
+    rfr_model = joblib.load("random_forest_regression.joblib")
+    scaler=StandardScaler()
+    c_list=[]
+    
+
+    if request.method == 'POST':
+        concrete = request.get_json()
+        print(concrete)
+        for qty in concrete:
+            c_list.append(float(qty['key'])) 
+
+    np_matrix=np.array(c_list).reshape(1,-1)
+    # print(np_matrix)
+    # scaler.fit(np_matrix)
+    # np_matrix_scaled=scaler.transform(np_matrix)
+    # print(np_matrix_scaled)
+    pred=rfr_model.predict(np_matrix)
+    pred=list(pred)
+    
+ 
+    return jsonify(pred)
+
+@app.route("/graph_results", methods=["POST"])
+def graph_results():
+    # load, no need to initialize the loaded_rf
+    rfr_model = joblib.load("random_forest_regression.joblib")
+    scaler=StandardScaler()
     c_list=[]
     c_matrix=[]
     
 
     if request.method == 'POST':
-        conrete = request.get_json()
-        for qty in conrete:
+        concrete = request.get_json()
+        print("concrete:",concrete)
+        for qty in concrete:
             c_list.append(float(qty['key']))
     for i in range(1,366):
         
@@ -36,17 +61,14 @@ def results():
         c_matrix.append(new_list)  
 
     np_matrix=np.array(c_matrix)
-    scaler.fit(np_matrix)
-    np_matrix_scaled=scaler.transform(np_matrix)
-    pred=rfr_model.predict(np_matrix_scaled)
+   
+    # scaler.fit(np_matrix)
+    # np_matrix_scaled=scaler.transform(np_matrix)
+    pred=rfr_model.predict(np_matrix)
     pred=list(pred)
-         
+     
  
     return jsonify(pred)
-
-@app.route("/graph")
-def graphs():
-    return render_template("graph.html")
 
 @app.route("/table")
 def table():

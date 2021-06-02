@@ -34,10 +34,8 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="/" target="_self"
                         style="font-size:30px;padding:10px">Home</a>
-                    <a class="nav-item nav-link" href="/table" target="_self"
-                        style="font-size:30px;padding:10px">Table</a>
-                    <a class="nav-item nav-link" href="/graph" target="_self"
-                        style="font-size:30px;padding:10px">Graphs</a>
+                    <a class="nav-item nav-link" href="/table" target="_self" style="font-size:30px;padding:10px">Data
+                        Analysis</a>
                 </div>
             </nav>
             <div class="hero text-center">
@@ -49,6 +47,18 @@
                     <aside class="filters">
                         <div class="panel panel-default">
                             <div class="panel-heading" style="text-align: center;">Predict the Strength of Your Concrete
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" style="text-align: center;margin-top: 10px;">
+                                    <div>
+                                        <input id="clear-btn" type="submit" value="Reset">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="col-md-6" style="text-align: center;margin-top: 10px;">
+                                        <input id="predict-btn" type="submit" value="Predict">
+                                    </div>
+                                </div>
                             </div>
                             <div class="panel-body">
                                 <form>
@@ -86,27 +96,31 @@
                                                         name="coarse_aggregate" placeholder="801-1.15k"
                                                         size="5"></label>
                                             </li>
+                            
                                             <li class="filter list-group-item">
                                                 <label for="fine_aggregate">Fine Aggregate (kg)
                                                     <input class="form-control" id="fine_aggregate" type="text"
                                                         name="fine_aggregate" placeholder="594-993" size="5"></label>
                                             </li>
-                                            <li>
-                                                <!-- <div>
-                                                <button id="clear-btn" type="button"
-                                                    class="btn btn-default">Reset</button>
-                                                </div> -->
-                                                <div>
-                                                    <input id="predict-btn" type="submit" value="Predict">
-                                                </div>
-
-                                            </li>
+                                            <li class="filter list-group-item">
+                                                <label for="age">Age (days)
+                                                    <input class="form-control" id="age" type="text"
+                                                        name="age" placeholder="1-365" size="5"></label>
+                                            </li>                                           
                                         </ul>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </aside>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="margin-left: 25px;margin-right: 5px">
+                        <div id="bar"></div>
+                    </div>
+                    <div class="col-md-5" style="margin-right: 5px;margin-left: 5px;">
+                        <div id="line"></div>
+                    </div>
                 </div>
                 <div class="row" style="margin: 10px;">
                     <div class="col-md-12">
@@ -122,7 +136,7 @@
                                         <th class="table-head">Coarse Aggregate (kg)</th>
                                         <th class="table-head">Fine Aggregate (kg)</th>
                                         <th class="table-head">Age (days)</th>
-                                        <th class="table-head">Compressive Strength (MPa)</th>
+                                        <th class="table-head">Compressive Strength (PSI)</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
