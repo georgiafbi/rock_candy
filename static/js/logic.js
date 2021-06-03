@@ -64,18 +64,21 @@ function oneYear() {
 }
 function buildBar(xdata, ydata) {
     var traceBar = {
-        x: xdata,
-        y: ydata,
-        type: 'bar'
+        labels: xdata,
+        values: ydata,
+        type: 'pie',
+        textinfo: "label+percent",
+        textposition: "inside",
+        automargin: true
     };
-    var layout = {
-        title: 'Component Amount',
-        xaxis: { title: 'Component' },
-        yaxis: { title: 'Mass (kg)' }
-    };
+    // var layout = {
+    //     title: 'Component Amount',
+    //     xaxis: { title: 'Component' },
+    //     yaxis: { title: 'Mass (kg)' }
+    // };
 
     var dataBar = [traceBar];
-    Plotly.newPlot('bar', dataBar, layout);
+    Plotly.newPlot('bar', dataBar);//, layout);
 
 }
 function buildLine(xdata, ydata) {

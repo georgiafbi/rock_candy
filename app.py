@@ -1,4 +1,3 @@
-import os
 import joblib
 from flask import (
     Flask,
@@ -6,11 +5,10 @@ from flask import (
     jsonify,
     request,
     redirect)
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import GridSearchCV
+
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+
+import pandas as pd
 app = Flask(__name__)
 
 
@@ -18,7 +16,7 @@ app = Flask(__name__)
 def table_results():
     # load, no need to initialize the loaded_rf
     rfr_model = joblib.load("random_forest_regression.joblib")
-    scaler=StandardScaler()
+    
     c_list=[]
     
 
@@ -43,7 +41,7 @@ def table_results():
 def graph_results():
     # load, no need to initialize the loaded_rf
     rfr_model = joblib.load("random_forest_regression.joblib")
-    scaler=StandardScaler()
+    
     c_list=[]
     c_matrix=[]
     
@@ -72,12 +70,16 @@ def graph_results():
 
 @app.route("/table")
 def table():
+
     return render_template('table.html')
 
 @app.route("/")
 def home():
-   
-    return render_template('index.html')
+    best_params_html=pd.read_csv('Resources/best_params.csv',index_col=[0]).to_html()
+    best_features_html=pd.read_csv('Resources/best_features.csv',index_col=[0]).to_html()
+    rfr_stats_html=pd.read_csv('Resources/rfr_stats.csv',index_col=[0]).to_html()
+    
+    return render_template('index.html',best_params_table=best_params_html,best_features_table=best_features_html,rfr_stats_table=rfr_stats_html)
 
 
 if __name__ == '__main__':
