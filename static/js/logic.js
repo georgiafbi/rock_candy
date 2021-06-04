@@ -116,6 +116,15 @@ function buildTable(data, output) {
 function resetData() {
     d3.event.preventDefault()
     tbody.html("");
+    var bar = document.getElementById('bar')
+    var line = document.getElementById('line')
+    Plotly.purge(bar);
+    Plotly.purge(line);
+    $('.form-control').each(function () {
+        $(this).val("");
+              x=1;
+         });
+             $('.form-control').first().focus(); 
 
 }
 function runEnter() {

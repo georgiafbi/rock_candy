@@ -42,8 +42,8 @@ def training_data():
     #creates new dataframe from original dataframe with renamed columns
     new_df=rename_cols(df,new_column_names)
     real_df=new_df
-    for i in range(50):
-        new_df.loc[len(new_df)] = 0.0
+#     for i in range(50):
+#         new_df.loc[len(new_df)] = 0.0
         
     new_df.head()
 

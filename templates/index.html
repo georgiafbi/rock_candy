@@ -94,26 +94,30 @@
                         <a class="nav-item nav-link" href="/table" target="_self"
                             style="font-size:30px;padding:10px">Data Analysis</a>
                     </div>
+                </div>
 
             </nav>
             <div class="row">
                 <div class="col-md-4">
-                    <h5>ABOUT PROJECT</h5>
-                    <p>Concrete is used more than any other material in the world.
-                        <br>(https://ekaconcrete.com/10-impressive-facts-concrete/).
-                    </p>
-                    <p>After around four weeks, concrete has reached 90% of its final strength.<br> However, it
-                        continues
-                        to strengthen for decades afterwards. <br>Some bacteria also help to strengthen concrete!<br>
-                        ((https://ekaconcrete.com/10-impressive-facts-concrete/).</p>
+                    <h5>Concrete Facts:</h5>
+                    <a href="https://ekaconcrete.com/10-impressive-facts-concrete/" target="_blank"
+                        style='text-decoration: none;color:white;'>
+                        <p>Concrete is used more than any other material in the world.
+
+                        </p>
+                        <p>After around four weeks, concrete has reached 90% of its final strength.<br> However, it
+                            continues
+                            to strengthen for decades afterwards. <br>Some bacteria also help to strengthen
+                            concrete!<br>
+                        </p>
+                    </a>
                 </div>
                 <div class="col-md-4" style="text-align: right;margin-top: 10px;width: 250px;">
-                    <p> The Pantheon is
-                        a massive concrete building built in Rome in the 2nd century AD. For
+                    <p> The Pantheon is a massive concrete building built in Rome in the 2nd century AD. For
                         nearly
                         2,000 years the Pantheon has stood, weathering earthquakes, Barbarian invasions and the
                         persistent onslaught of Mother Nature.
-                        (https://www.smithsonianmag.com/smart-news/scientific-reason-why-pantheon-hasnt-crumbled-180953627/).
+
                     </p>
 
                 </div>
@@ -129,44 +133,80 @@
                     <div>
                         <figure>
 
+                            <a href="https://www.smithsonianmag.com/smart-news/scientific-reason-why-pantheon-hasnt-crumbled-180953627/"
+                                target="_blank">
 
-                            <img src="static/image/InsidePanethon.jpg" alt="InsidePanethon" width="400" height="400"
-                                style="box-shadow: 10px 10px 5px black;border-radius:25px;">
-                            <!-- <figcaption style="text-align: left;">The Pantheon is
+
+                                <img src="static/image/InsidePanethon.jpg" alt="InsidePanethon" width="400" height="400"
+                                    style="box-shadow: 10px 10px 5px black;border-radius:25px;">
+                                <!-- <figcaption style="text-align: left;">The Pantheon is
                                 a massive concrete building built in Rome in the 2nd century AD. For
                                 nearly
                                 2,000 years the Pantheon has stood, weathering earthquakes, Barbarian invasions and the
                                 persistent onslaught of Mother Nature.
                                 (https://www.smithsonianmag.com/smart-news/scientific-reason-why-pantheon-hasnt-crumbled-180953627/).
                             </figcaption> -->
+                            </a>
                         </figure>
 
                     </div>
 
                 </div>
             </div>
-
-            <div class="row" style="margin-top: 25px;">
-                <div class='col-md-4'
-                    style="text-align: center;box-shadow: 5px 5px 5px black;border-radius:10px;margin-right: 100px;width:210px;margin-top:20px;">
-                    {{rfr_stats_table|safe}}
-
-                    {{best_params_table|safe}}
-
-                    {{best_features_table|safe}}
-
-
+            <div class="row">
+                <div class="col-md-12" style="margin:10px;box-shadow: 5px 5px 5px black;border-radius:5px;">
+                    <h4>Data analysis was done using the Python programming language and its libraries: scikit_learn,
+                        pandas, keras, numpy, and matplotlib.
+                        From the Figure 1.1, we can see that the most important component contributing to the
+                        compressive strength of concrete is water, cement, and age.
+                        We were able to achieve an accuracy score of 89% with a mean squared error (MSE) of 27.9 and
+                        mean absolute error (MAE) of 3.44. These are the best results when
+                        predicting the compressive strength of concrete using a Random Forest Regression (RFR) Machine
+                        Learning Model compare to other models tested, such as: Artifical Neural Network (ANN),
+                        Linear Regression + Polynomial Features (LR+PF), Support Vector Regression (SVR). The SVR model
+                        yielded an accuracy of 56%, LR+PF with 84%, and ANN with a MSE of 39.3 and a MAE of 4.98.
+                        The best parameters for our RFR model were determined using GridSearchCV library function that is
+                        a member of sklearn's model_selection package.
+                    </h4>
                 </div>
-                <div class="col-md-6" style="float: right;">
-                    <div class='img-magnifier-container'
-                        style="float:right;box-shadow: 10px 10px 5px black;border-radius:25px;background-color:red;width:400px;color:white;text-align:center;margin-top: 10px;">
-                        <caption style="caption-side:top;">Scatter Matrix Plot</caption>
-                        <img id="myimage" src="static\image\scatter_matrix_sm.png" alt="scatter_matrix_plot"
-                            width="400px">
-                    </div>
+
+            </div>
+
+            <div class="row">
+                <figure>
+                    <div class='col-md-6'
+                        style="text-align: center;box-shadow: 5px 5px 5px 5px black;border-radius:5px;margin-right: 100px;width:210px;margin:20px;margin-left:200px;">
+                        {{rfr_stats_table|safe}}
+
+                        {{best_params_table|safe}}
+
+                        {{best_features_table|safe}}
+
+
+
+                        <figcaption style="text-align: center;">
+                            <p>Figure 1.1</p>
+                        </figcaption>
+                </figure>
+
+
+                <div class="col-md-6" style="float:right;">
+                    <figure>
+                        <div class='img-magnifier-container' style="margin: 10px;float:right;">
+                            <img class="img-responsive" id="myimage" src="static\image\scatter_matrix_sm.png"
+                                alt="scatter_matrix_plot"
+                                style="background-color: white;box-shadow: 5px 5px 5px 5px black;border-radius:15px"
+                                width="600" height="600">
+                        </div>
+                        <figcaption style="text-align: center;">
+                            <p>Figure 1.2</p>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
+
         </div>
+    </div>
     </div>
 
     </div>
