@@ -73,7 +73,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="wrapper">
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -97,7 +97,7 @@
 
             </nav>
             <div class="row">
-                <div class="col-md-4" >
+                <div class="col-md-4">
                     <h5>ABOUT PROJECT</h5>
                     <p>Concrete is used more than any other material in the world.
                         <br>(https://ekaconcrete.com/10-impressive-facts-concrete/).
@@ -114,7 +114,7 @@
                         2,000 years the Pantheon has stood, weathering earthquakes, Barbarian invasions and the
                         persistent onslaught of Mother Nature.
                         (https://www.smithsonianmag.com/smart-news/scientific-reason-why-pantheon-hasnt-crumbled-180953627/).
-                   </p>
+                    </p>
 
                 </div>
                 <!-- </div>
@@ -145,20 +145,21 @@
 
                 </div>
             </div>
-            <div class="container">
-                <div class="row" style="margin-top: 25px;">
-                    <div class='col-md-4'
-                        style="text-align: center;box-shadow: 5px 5px 5px black;border-radius:10px;margin-right: 100px;width:210px;margin-top:20px;">
-                        {{rfr_stats_table|safe}}
 
-                        {{best_params_table|safe}}
+            <div class="row" style="margin-top: 25px;">
+                <div class='col-md-4'
+                    style="text-align: center;box-shadow: 5px 5px 5px black;border-radius:10px;margin-right: 100px;width:210px;margin-top:20px;">
+                    {{rfr_stats_table|safe}}
 
-                        {{best_features_table|safe}}
+                    {{best_params_table|safe}}
+
+                    {{best_features_table|safe}}
 
 
-                    </div>
-                    <div class='col-md-6 img-magnifier-container'
-                        style="box-shadow: 10px 10px 5px black;border-radius:25px;background-color:red;width:400px;float:left;color:white;text-align:center;margin-top: 10px;">
+                </div>
+                <div class="col-md-6" style="float: right;">
+                    <div class='img-magnifier-container'
+                        style="float:right;box-shadow: 10px 10px 5px black;border-radius:25px;background-color:red;width:400px;color:white;text-align:center;margin-top: 10px;">
                         <caption style="caption-side:top;">Scatter Matrix Plot</caption>
                         <img id="myimage" src="static\image\scatter_matrix_sm.png" alt="scatter_matrix_plot"
                             width="400px">
@@ -166,6 +167,8 @@
                 </div>
             </div>
         </div>
+    </div>
+
     </div>
 
     <script>
