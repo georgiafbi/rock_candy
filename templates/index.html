@@ -73,7 +73,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -96,37 +96,84 @@
                     </div>
 
             </nav>
-            <img src="static/image/InsidePanethon.jpg" alt="InsidePanethon" width="400" height="400"
-                style="float:right;box-shadow: 10px 10px 5px black;border-radius:25px;">
-        </div>
-        <div class="container">
-            <div class="row" style="margin-top: 25px;">
-                <div class='col-lg-5 img-magnifier-container'
-                    style="box-shadow: 10px 10px 5px black;border-radius:25px;background-color:red;width:400px;float:right;color:white;text-align:center;margin-top: 10px;">
-                    <caption style="caption-side:top;">Scatter Matrix Plot</caption>
-                    <img id="myimage" src="static\image\scatter_matrix_sm.png"
-                        alt="scatter_matrix_plot" width="400px"></div>
-                <div class='col-lg-3'
-                    style="text-align: center;box-shadow: 5px 5px 5px black;border-radius:10px;float:right;margin-right: 100px;width:210px;margin-top:20px;">
-                    {{rfr_stats_table|safe}}
+            <div class="row">
+                <div class="col-md-4" >
+                    <h5>ABOUT PROJECT</h5>
+                    <p>Concrete is used more than any other material in the world.
+                        <br>(https://ekaconcrete.com/10-impressive-facts-concrete/).
+                    </p>
+                    <p>After around four weeks, concrete has reached 90% of its final strength.<br> However, it
+                        continues
+                        to strengthen for decades afterwards. <br>Some bacteria also help to strengthen concrete!<br>
+                        ((https://ekaconcrete.com/10-impressive-facts-concrete/).</p>
+                </div>
+                <div class="col-md-4" style="text-align: right;margin-top: 10px;width: 250px;">
+                    <p> The Pantheon is
+                        a massive concrete building built in Rome in the 2nd century AD. For
+                        nearly
+                        2,000 years the Pantheon has stood, weathering earthquakes, Barbarian invasions and the
+                        persistent onslaught of Mother Nature.
+                        (https://www.smithsonianmag.com/smart-news/scientific-reason-why-pantheon-hasnt-crumbled-180953627/).
+                   </p>
 
-                    {{best_params_table|safe}}
+                </div>
+                <!-- </div>
+            <div class="row"> -->
+                <!-- <div class="col-md-6">
+                    <div style="float:right;width: 200px;height:max-content;">
+                        <p style="text-align:right;"> 
+                        </p>
+                    </div>
+                </div> -->
+                <div class="col-md-4">
+                    <div>
+                        <figure>
 
-                    {{best_features_table|safe}}
 
+                            <img src="static/image/InsidePanethon.jpg" alt="InsidePanethon" width="400" height="400"
+                                style="box-shadow: 10px 10px 5px black;border-radius:25px;">
+                            <!-- <figcaption style="text-align: left;">The Pantheon is
+                                a massive concrete building built in Rome in the 2nd century AD. For
+                                nearly
+                                2,000 years the Pantheon has stood, weathering earthquakes, Barbarian invasions and the
+                                persistent onslaught of Mother Nature.
+                                (https://www.smithsonianmag.com/smart-news/scientific-reason-why-pantheon-hasnt-crumbled-180953627/).
+                            </figcaption> -->
+                        </figure>
+
+                    </div>
 
                 </div>
             </div>
+            <div class="container">
+                <div class="row" style="margin-top: 25px;">
+                    <div class='col-md-4'
+                        style="text-align: center;box-shadow: 5px 5px 5px black;border-radius:10px;margin-right: 100px;width:210px;margin-top:20px;">
+                        {{rfr_stats_table|safe}}
+
+                        {{best_params_table|safe}}
+
+                        {{best_features_table|safe}}
+
+
+                    </div>
+                    <div class='col-md-6 img-magnifier-container'
+                        style="box-shadow: 10px 10px 5px black;border-radius:25px;background-color:red;width:400px;float:left;color:white;text-align:center;margin-top: 10px;">
+                        <caption style="caption-side:top;">Scatter Matrix Plot</caption>
+                        <img id="myimage" src="static\image\scatter_matrix_sm.png" alt="scatter_matrix_plot"
+                            width="400px">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     </div>
 
     <script>
         /* Initiate Magnify Function
         with the id of the image, and the strength of the magnifier glass:*/
         magnify("myimage", 2);
-       
-        </script>
+
+    </script>
 </body>
 
 </html>
