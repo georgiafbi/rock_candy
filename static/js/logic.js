@@ -7,17 +7,17 @@ var components = ["Cement", "Blast Furnace Slage", "Fly Ash", "Water", "Superpla
 // Select the reset and filter buttons
 var predictButton = d3.select("#predict-btn");
 var resetButton = d3.select("#clear-btn");
-function randomInput(){
-    var inputArray=[
-        {"#cement": getRandomArbitrary(102, 540)},
-        {"#blast_furnace_slage": getRandomArbitrary(0, 359)},
-        {"#fly_ash": getRandomArbitrary(0, 200)},
-        {"#water": getRandomArbitrary(122, 247)},
-        {"#superplasticizer": getRandomArbitrary(0, 33)},
-        {"#coarse_aggregate": getRandomArbitrary(801, 1150)},
-        {"#fine_aggregate": getRandomArbitrary(594, 993)},
-        {"#age": getRandomArbitrary(1, 365)},
-        {"#age": getRandomArbitrary(1, 365)}
+function randomInput() {
+    var inputArray = [
+        { "#cement": getRandomArbitrary(102, 540) },
+        { "#blast_furnace_slage": getRandomArbitrary(0, 359) },
+        { "#fly_ash": getRandomArbitrary(0, 200) },
+        { "#water": getRandomArbitrary(122, 247) },
+        { "#superplasticizer": getRandomArbitrary(0, 33) },
+        { "#coarse_aggregate": getRandomArbitrary(801, 1150) },
+        { "#fine_aggregate": getRandomArbitrary(594, 993) },
+        { "#age": getRandomArbitrary(1, 365) },
+        { "#age": getRandomArbitrary(1, 365) }
     ]
     return inputArray
 }
@@ -35,14 +35,14 @@ function getUserInput() {
     var inputValuesJSON = [];
     var inputValues = [];
 
-    for(var i=0;i<8;i++){
-        var entry=randomInput()[i]
+    for (var i = 0; i < 8; i++) {
+        var entry = randomInput()[i]
         var key = Object.keys(entry)[0];
-        var value=Object.values(entry)[0];
+        var value = Object.values(entry)[0];
         var input = d3.select(key).property("value");
-        console.log(key, value);
-        console.log(input);
-        if (input !="") {
+        // console.log(key, value);
+        // console.log(input);
+        if (input != "") {
             inputValuesJSON.push({ key: input });
             inputValues.push(input);
         }
@@ -51,7 +51,7 @@ function getUserInput() {
             inputValues.push(value);
         }
     }
-    console.log(inputValuesJSON,inputValues);
+    // console.log(inputValuesJSON, inputValues);
     return [inputValuesJSON, inputValues];
 
 }
@@ -78,11 +78,11 @@ function buildBar(xdata, ydata) {
     // };
 
     var dataBar = [traceBar];
-    Plotly.newPlot('bar', dataBar);//, layout);
+    Plotly.newPlot('pie', dataBar);//, layout);
 
 }
 function buildLine(xdata, ydata) {
-    var ydata = ydata.map(x=> x * 145.038);
+    var ydata = ydata.map(x => x * 145.038);
     var trace = {
         x: xdata,
         y: ydata,
@@ -98,15 +98,33 @@ function buildLine(xdata, ydata) {
 }
 function buildTable(data, output) {
     // tbody.html("");
-    var output = output.map(x=> x * 145.038);
+    console.log(data);
+    var output = output.map(x => x * 145.038);
     var row = tbody.append("tr");
-    data.push({ 'key': precise(output) })
+    console.log(data[3].key)
+    if(data[0].key==="0"){
+        data.push({"key":"Add Some Cement"});
+        destroyLine();
+    }
+    else if(data[3].key==="0"){
+        data.push({"key":"Add Some Water"});
+        destroyLine();
+
+    }
+    else if(data[7].key==="0"){
+        data.push({"key":"Add Some Time"});
+        destroyLine();
+
+    }
+    else{
+        data.push({ 'key': precise(output) })
+    }
     data.forEach(d => {
 
         var cell = row.append('td');
         //console.log(key);
         //console.log(value);
-        cell.text(Object.values(d));
+        cell.text(d.key);
 
 
     });
@@ -114,24 +132,24 @@ function buildTable(data, output) {
 
 }
 function resetData() {
-    d3.event.preventDefault()
+    d3.event.preventDefault();
     tbody.html("");
-    var bar = document.getElementById('bar')
-    var line = document.getElementById('line')
-    Plotly.purge(bar);
-    Plotly.purge(line);
+    
+    destroyLine();
+    destroyPie();
+  
     $('.form-control').each(function () {
         $(this).val("");
-              x=1;
-         });
-             $('.form-control').first().focus(); 
+        x = 1;
+    });
+    $('.form-control').first().focus();
 
 }
 function runEnter() {
     d3.event.preventDefault();
 
     var user_input = getUserInput();
-    console.log(user_input);
+    // console.log(user_input);
 
     var table_results = $.ajax({
         type: "POST",
@@ -151,7 +169,7 @@ function runEnter() {
         url: "/graph_results",
         traditional: "true",
         async: false,
-        data: JSON.stringify(user_input[0].slice(0,-1)),
+        data: JSON.stringify(user_input[0].slice(0, -1)),
         dataType: "json",
         success: function (data) {
             return data;
@@ -160,12 +178,35 @@ function runEnter() {
     var graph_response = graph_results.responseJSON
     var table_response = table_results.responseJSON
 
-    buildBar(components, user_input[1].slice(0,-1));
+    buildBar(components, user_input[1].slice(0, -1));
     buildLine(oneYear(), graph_response);
+    // build3DPlots(graph_response, oneYear(), user_input[0]);
     buildTable(user_input[0], table_response);
+
 
 
 
     // console.log(user_input);
     // console.log(results)
+}
+
+function color() {
+
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+
+
+
+    return randomColor;
+}
+function destroyPie(){
+    var bar = document.getElementById('pie')
+    
+    
+    Plotly.purge(bar);
+
+}
+function destroyLine(){
+    var line = document.getElementById('line')
+    Plotly.purge(line);
 }

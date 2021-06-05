@@ -1,0 +1,15 @@
+#filters li{
+    display: inline-block;
+
+}
+.panel-body{
+    display: inline-block;
+}
+
+li label{
+  text-align: center;  
+} 
+
+ul{
+    text-align: center;
+}

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Concrete</title>
+    <title>Data Science and Engineering Analysis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -89,10 +89,10 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="navbar-nav">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="/" target="_self"
-                            style="font-size:30px;padding:10px">Home</a>
                         <a class="nav-item nav-link" href="/table" target="_self"
-                            style="font-size:30px;padding:10px">Data Analysis</a>
+                            style="font-size:30px;padding:10px">Concrete Data Analysis</a>
+                        <a class="nav-item nav-link" href="/water" target="_self"
+                            style="font-size:30px;padding:10px;">Future Projects</a>
                     </div>
                 </div>
 
@@ -105,12 +105,13 @@
                         <p>Concrete is used more than any other material in the world.
 
                         </p>
-                        <p>After around four weeks, concrete has reached 90% of its final strength.</p> 
+                        <p>After around four weeks, concrete has reached 90% of its final strength.</p>
                         <p>However, it continues to strengthen for decades afterwards.</p>
                         <p>Some bacteria also help to strengthen
                             concrete!
                         </p>
-                        <p>Aggregates make up 60 to 80 percent of concrete volume and between 75 to 80 percent of its weight.</p>
+                        <p>Aggregates make up 60 to 80 percent of concrete volume and between 75 to 80 percent of its
+                            weight.</p>
                     </a>
                 </div>
                 <div class="col-md-4" style="text-align: right;margin-top: 10px;margin-left:75px;width: 250px;">
@@ -131,8 +132,8 @@
                     </div>
                 </div> -->
                 <div class="col-md-4" style="float:right;margin-right: 65px;">
-                    <div >
-                        <figure >
+                    <div>
+                        <figure>
 
                             <a href="https://www.smithsonianmag.com/smart-news/scientific-reason-why-pantheon-hasnt-crumbled-180953627/"
                                 target="_blank">
@@ -155,19 +156,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" style="margin:10px;box-shadow: 5px 5px 5px black;border-radius:5px;">
+                <div class="col-md-12" style="margin:10px;">
                     <h4>Data analysis was done using the Python programming language and its libraries: scikit_learn,
                         pandas, keras, numpy, and matplotlib.
                         From the Figure 1.1, we can see that the most important components contributing to the
                         compressive strength of concrete are water, cement, and age.
                         We were able to achieve an accuracy score of 89% with a mean squared error (MSE) of 27.9 and
-                        mean absolute error (MAE) of 3.44. With the Random Forest Regression (RFR) model, we were able to achieve 
-                        our highest accuracy score of 89% with a mean squared error (MSE) of 27.9 and mean absolute error 
-                        (MAE) of 3.44. These are the best results when predicting the compressive strength of concrete compared 
+                        mean absolute error (MAE) of 3.44. With the Random Forest Regression (RFR) model, we were able
+                        to achieve
+                        our highest accuracy score of 89% with a mean squared error (MSE) of 27.9 and mean absolute
+                        error
+                        (MAE) of 3.44. These are the best results when predicting the compressive strength of concrete
+                        compared
                         to various other models tested, such as: Artifical Neural Network (ANN),
                         Linear Regression + Polynomial Features (LR+PF), Support Vector Regression (SVR). The SVR model
                         yielded an accuracy of 56%, LR+PF with 84%, and ANN with a MSE of 39.3 and a MAE of 4.98.
-                        The best parameters for our RFR model were determined using GridSearchCV library function that is
+                        The best parameters for our RFR model were determined using GridSearchCV library function that
+                        is
                         a member of sklearn's model_selection package.
                     </h4>
                 </div>
@@ -195,7 +200,7 @@
                 <div class="col-md-6" style="float:right;">
                     <figure>
                         <div class='img-magnifier-container' style="margin: 10px;float:right;">
-                            <img class="img-responsive" id="myimage" src="static\image\scatter_matrix_sm.png"
+                            <img class="img-responsive" id="myimage" src="static\image\scatter_matrix_sns.png"
                                 alt="scatter_matrix_plot"
                                 style="background-color: white;box-shadow: 5px 5px 5px 5px black;border-radius:15px"
                                 width="600" height="600">

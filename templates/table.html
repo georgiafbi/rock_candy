@@ -14,7 +14,7 @@
 
     <!--jQuery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
 
 
 </head>
@@ -37,15 +37,16 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="/" target="_self"
                         style="font-size:30px;padding:10px">Home</a>
-                    <a class="nav-item nav-link" href="/table" target="_self" style="font-size:30px;padding:10px;">Data
-                        Analysis</a>
+                    <a class="nav-item nav-link" href="/water" target="_self"
+                        style="font-size:30px;padding:10px;">Future Projects</a>
                 </div>
             </nav>
             <div class="hero text-center">
                 <h3>Concrete Compressive Strength</h3>
                 <p>How strong is your concrete?</p>
             </div>
-            <div class="row margin-top-50" style="box-shadow: 5px 5px 5px black;border-radius:10px;background-color: firebrick;">
+            <div class="row margin-top-50"
+                style="box-shadow: 5px 5px 5px black;border-radius:10px;background-color: firebrick;">
                 <div class="col-md-12">
                     <aside class="filters">
                         <div class="panel panel-default">
@@ -54,12 +55,14 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6" style="text-align: center;margin-top: 10px;">
                                     <div>
-                                        <input id="clear-btn" type="submit" value="Reset" style="background-color: red;color:white;">
+                                        <input id="clear-btn" type="submit" value="Reset"
+                                            style="background-color: red;color:white;">
                                     </div>
                                 </div>
                                 <div>
                                     <div class="col-md-6 col-sm-6" style="text-align: center;margin-top: 10px;">
-                                        <input id="predict-btn" type="submit" value="Predict" style="background-color: green; color:white;">
+                                        <input id="predict-btn" type="submit" value="Predict"
+                                            style="background-color: green; color:white;">
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +102,7 @@
                                                         name="coarse_aggregate" placeholder="801-1.15k"
                                                         size="5"></label>
                                             </li>
-                            
+
                                             <li class="filter list-group-item">
                                                 <label for="fine_aggregate">Fine Aggregate (kg)
                                                     <input class="form-control" id="fine_aggregate" type="text"
@@ -107,9 +110,9 @@
                                             </li>
                                             <li class="filter list-group-item">
                                                 <label for="age">Age (days)
-                                                    <input class="form-control" id="age" type="text"
-                                                        name="age" placeholder="1-365" size="5"></label>
-                                            </li>                                           
+                                                    <input class="form-control" id="age" type="text" name="age"
+                                                        placeholder="1-365" size="5"></label>
+                                            </li>
                                         </ul>
                                     </div>
                                 </form>
@@ -118,17 +121,24 @@
                     </aside>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-md-5 col-sm-12" >
-                        <div id="bar" style="margin: 15px;box-shadow: 10px 10px 5px black;"></div>
+                    <div class="col-lg-6 col-md-5 col-sm-12">
+                        <div id="pie" style="margin: 15px;box-shadow: 10px 10px 5px black;"></div>
                     </div>
                     <div class="col-lg-6 col-md-5 col-sm-12">
                         <div id="line" style="margin: 15px;box-shadow: 10px 10px 5px black;"></div>
                     </div>
                 </div>
+                <!-- <div class="row">
+                    <div class="col-md-12">
+                        <div id="threeD" style="margin: 15px;box-shadow: 10px 10px 5px black;"></div>
+                    </div>
+
+                </div> -->
                 <div class="row" style="margin: 10px;">
                     <div class="col-md-12">
                         <div id="table-area" class="">
-                            <table id="cement-table" class="table table-striped"style="box-shadow: 10px 10px 5px black;border-radius:10px;">
+                            <table id="cement-table" class="table table-striped"
+                                style="box-shadow: 10px 10px 5px black;border-radius:10px;">
                                 <thead>
                                     <tr>
                                         <th class="table-head">Cement (kg)</th>

@@ -10,8 +10,30 @@ import numpy as np
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
 app = Flask(__name__)
+
+@app.route("/water_results", methods=["POST"])
+def water_results():
+    water_model=joblib.load("water_model.joblib")
+    water_list=[]
+    if request.method == 'POST':
+        water=request.get_json()
+        print(water)
+        print(water)
+        for element in water:
+            water_list.append(float(element['key']))
+    np_matrix=np.array(water_list).reshape(1,-1)
+    print(np_matrix)
+    pred=water_model.predict(np_matrix)
+    pred=list(pred)
+    print(pred)
+    
+ 
+    return jsonify(int(pred[0]))
+    
+
 
 
 @app.route("/table_results", methods=["POST"])
@@ -29,10 +51,7 @@ def table_results():
             c_list.append(float(qty['key'])) 
 
     np_matrix=np.array(c_list).reshape(1,-1)
-    # print(np_matrix)
-    # scaler.fit(np_matrix)
-    # np_matrix_scaled=scaler.transform(np_matrix)
-    # print(np_matrix_scaled)
+    
     pred=rfr_model.predict(np_matrix)
     pred=list(pred)
     
@@ -66,9 +85,12 @@ def graph_results():
     # np_matrix_scaled=scaler.transform(np_matrix)
     pred=rfr_model.predict(np_matrix)
     pred=list(pred)
-     
+    
  
     return jsonify(pred)
+@app.route("/water")
+def water():
+    return render_template('water.html')
 
 @app.route("/table")
 def table():
