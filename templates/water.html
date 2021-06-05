@@ -160,7 +160,7 @@
                         <hr>
                         <h2>Idea: use machine learning and the cloud to detect road signs, traffic lights, lane lines, people, and other objects for autonomous vehicles.</h2><br><br>
                         <h3>We took random images of stop signs. 
-                            The thinking behind isolating stop signs is by color (for now).
+                            The thinking is to isolate stop signs is by color (for now).
                              Using the OpenCV library in python, we convert the original image into  HSV (for hue, saturation, value) image. 
                              We then assign lower and upper pixel values we want to isolate. We create a mask of this image.
                             We then use bitwise AND operation on the original image and the masked image.
